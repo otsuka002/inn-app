@@ -1,0 +1,11 @@
+<h1>Reservations#index</h1>
+<h1>予約済みルーム一覧</h1>
+<div class="reservation-list">
+  <% @reservations.each do |reservation| %>
+    <%= reservation.start_day %>
+    <%= reservation.end_day %>
+  <% end %>
+</div>
+<% if flash[:notice] %>
+  <p class="notice"><%= flash[:notice] %></p>
+<% end %>

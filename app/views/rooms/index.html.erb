@@ -1,0 +1,11 @@
+<h1>Rooms#index</h1>
+<% @rooms.each do |room| %>
+  <div class="room-list">
+    <%= link_to room do %>
+      <div class="room-image"><%= image_tag room.room_image %></div>
+      <div class="room-name"><%= room.room_name %></div><br>
+      <div class="room-address"><%= room.address %></div><br>
+      <div class="room-price">¥ <%= room.price %></div>
+    <% end %>
+  </div>
+<% end %>

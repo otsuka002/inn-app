@@ -1,0 +1,20 @@
+<h1>Users#edit</h1>
+<div class="useredit-title">編集</div>
+<%= form_for @user do |f| %>
+  <div class="field">
+    <%= f.label :name, "ユーザー名", class: "label" %>
+    <%= f.text_field :name, class: "input" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email, "メールアドレス", class: "label" %>
+    <%= f.email_field :email, class: "input" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :user_image, "プロフィール画像", class: "label" %>
+    <%= f.file_field :user_image, class: "input" %>
+  </div>
+
+  <%= f.submit "更新", class: "button is-success" %>
+<% end %>

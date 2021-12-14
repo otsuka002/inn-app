@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Innapp</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+      <%= link_to "ユーザー一覧", :users %>
+      <% if user_signed_in? %>
+      <p class="control">
+        <%= link_to "マイページ", user_path(current_user), class: "button is-warning is-light" %>
+      </p>
+      <p class="control">
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "button is-warning is-light" %>
+      </p>
+      <% else %>
+      <p class="control">
+        <%= link_to "新規登録", new_user_registration_path, class: "button is-warning is-light" %>
+      </p>
+      <p class="control">
+        <%= link_to "ログイン", new_user_session_path, class: "button is-warning is-light" %>
+      </p>
+      <% end %>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+    </header>
+    <%= yield %>
+    <footer>
+      <p>ルームシェアアプリ</p>
+    </footer>
+  </body>
+</html>

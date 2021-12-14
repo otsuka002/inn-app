@@ -1,0 +1,11 @@
+<h1>Reservations#new</h1>
+<h1>予約内容</h1>
+<%= form_with model: @reservation do |f| %>
+　　<p><%= f.label :start_day ,"開始日" %>
+　　　　<%= f.date_select :start_day %></p>
+    <p><%= f.label :end_day ,"終了日" %>
+　　　　<%= f.date_select :end_day %></p>
+    <p><%= f.label :people ,"人数" %>
+　　　　<%= f.number_field :people %></p>
+    <p><%= f.submit "予約する"%></p>
+<% end %>

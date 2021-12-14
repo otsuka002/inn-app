@@ -1,0 +1,9 @@
+<div class="userindex-title">ユーザー一覧</div>
+<% @users.each do |user| %>
+  <%= link_to user do %>
+    <div class="user-list">
+      <%= user.name %>
+      <%= image_tag user.user_image %>
+    </div>  
+  <% end %>
+<% end %>

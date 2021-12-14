@@ -1,0 +1,44 @@
+<h1>Rooms#show</h1>
+<div class="roomshow-title">ルーム詳細</div>
+
+<div class="roomshow-items">
+　　<div class="roomshow-item">
+    　　<p class="subheading-room">提供ユーザー</p>
+　　　　<p><%= @room.user.name %></p>
+　　</div>
+　　<div class="roomshow-item">
+    　　<p class="subheading-room">部屋名</p>
+　　　　<p><%= @room.room_name %></p>
+　　</div>
+　　<div class="roomshow-item">
+    　　<p class="subheading-room">場所</p>
+　　　　<p><%= @room.address %></p>
+　　</div>
+　　<div class="roomshow-item">
+    　　<p class="subheading-room">説明</p>
+　　　　<p><%= @room.introduction %></p>
+　　</div>
+　　<div class="roomshow-item">
+    　　<p class="subheading-room">料金</p>
+　　　　<p><%= @room.price %></p>
+　　</div>
+　　<div class="roomshow-item">
+        <p class="subheading-room">イメージ</p>
+　　　　<p><%= image_tag @room.room_image %></p>
+　　</div>
+　　<% if @room.user.id == current_user.id %>
+      <%= link_to "編集画面へ", edit_room_path(@room) %>
+      <%= link_to "削除", @room, method: :delete, data: { confirm: "本当に削除しますか？" } %>
+    <% end %>
+</div>
+<h1>予約内容</h1>
+<%= form_with model: @reservation do |f| %>
+　　<p><%= f.label :start_day ,"開始日" %>
+　　　　<%= f.date_select :start_day %></p>
+    <p><%= f.label :end_day ,"終了日" %>
+　　　　<%= f.date_select :end_day %></p>
+    <p><%= f.label :people ,"人数" %>
+　　　　<%= f.number_field :people %></p>
+　　<%= f.hidden_field :room_id, value: @room.id %>　　
+    <p><%= f.submit "予約する"%></p>
+<% end %>

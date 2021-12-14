@@ -1,0 +1,17 @@
+<h1>Rooms#new</h1>
+<p class="subheading-user">新規ルーム登録</p>
+<div class="register-form">
+  <%= form_with model: @room do |f| %>
+　　<p><div class="name-form"><%= f.label :room_name ,"名前" %>
+　　　 <%= f.text_field :room_name %></div></p>
+    <p><div class="introduction-form"><%= f.label :introduction ,"部屋説明" %>
+　　　 <%= f.text_area :introduction %></div></p>
+    <p><div class="price-form"><%= f.label :price ,"料金" %>
+　　　 <%= f.number_field :price %></div></p>
+　　<p><div class="address-form"><%= f.label :address ,"場所" %>
+　　   <%= f.text_field :address %></div></p>
+　　<p><div class="image-form"><%= f.label :room_image,"画像" %>
+       <%= f.file_field :room_image %></div>
+    <p><%= f.submit "登録する"%></p>
+  <% end %>
+</div>
