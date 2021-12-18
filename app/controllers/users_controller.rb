@@ -3,6 +3,10 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  def new
+    @user = User.new
+  end
+
   def show
     @user = User.find(params[:id])
   end
@@ -10,7 +14,7 @@ class UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
     if @user != current_user
-        redirect_to user_path(current_user), alert: "不正なアクセスです。"
+      redirect_to user_path(current_user), alert: "不正なアクセスです。"
     end
   end
   

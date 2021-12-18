@@ -1,17 +1,38 @@
-<h1>Rooms#new</h1>
-<p class="subheading-user">新規ルーム登録</p>
+<div class="section-title">
+    新規ルーム登録
+</div>
 <div class="register-form">
   <%= form_with model: @room do |f| %>
-　　<p><div class="name-form"><%= f.label :room_name ,"名前" %>
-　　　 <%= f.text_field :room_name %></div></p>
-    <p><div class="introduction-form"><%= f.label :introduction ,"部屋説明" %>
-　　　 <%= f.text_area :introduction %></div></p>
-    <p><div class="price-form"><%= f.label :price ,"料金" %>
-　　　 <%= f.number_field :price %></div></p>
-　　<p><div class="address-form"><%= f.label :address ,"場所" %>
-　　   <%= f.text_field :address %></div></p>
-　　<p><div class="image-form"><%= f.label :room_image,"画像" %>
-       <%= f.file_field :room_image %></div>
+　　<div class="input-label">
+　　  <%= f.label :room_name ,"名前" %>
+　　</div>
+　　<div class="input-form">
+　　  <%= f.text_field :room_name %>
+　　</div>
+    <div class="input-label">
+      <%= f.label :introduction ,"部屋説明" %>
+    </div>
+　　<div class="input-form">
+　　  <%= f.text_area :introduction %>
+　　</div>
+    <div class="input-label">
+      <%= f.label :price ,"料金" %>
+    </div>
+　　<div class="input-form">
+　　  <%= f.number_field :price %>
+　　</div>
+　　<div class="input-label">
+　　  <%= f.label :address ,"場所" %>
+　　</div>
+　　<div class="input-form">
+　　  <%= f.text_field :address %>
+　　</div>
+　　<div class="input-label">
+　　  <%= f.label :room_image,"画像" %>
+　　</div>
+    <div class="input-form">
+      <%= f.file_field :room_image %>
+    </div>
     <p><%= f.submit "登録する"%></p>
   <% end %>
 </div>

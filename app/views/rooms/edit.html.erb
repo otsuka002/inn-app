@@ -1,30 +1,38 @@
-<h1>Rooms#edit</h1>
-<div class="roomedit-title">編集</div>
-<%= form_for @room do |f| %>
-  <div class="field">
-    <%= f.label :room_name, "部屋名", class: "label" %>
-    <%= f.text_field :room_name, class: "input" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :address, "場所", class: "label" %>
-    <%= f.text_field :address, class: "input" %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :introduction, "説明", class: "label" %>
-    <%= f.text_area :introduction, class: "input" %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :price, "料金", class: "label" %>
-    <%= f.number_field :price, class: "input" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :room_image, "イメージ画像", class: "label" %>
-    <%= f.file_field :room_image, class: "input" %>
-  </div>
-
-  <%= f.submit "更新", class: "button is-success" %>
-<% end %>
+<div class="section-title">
+  ルーム情報編集
+</div>
+<article class="room-edit">
+  <%= form_for @room do |f| %>
+    <div class="input-label">
+      <%= f.label :room_name, "部屋名" %>
+    </div>
+    <div class="input-form">
+      <%= f.text_field :room_name %>
+    </div>
+    <div class="input-label">
+      <%= f.label :address, "場所" %>
+    </div>
+    <div class="input-form">
+      <%= f.text_field :address %>
+    </div>
+    <div class="input-label">
+      <%= f.label :introduction, "説明" %>
+    </div>
+    <div class="input-form">
+      <%= f.text_area :introduction %>
+    </div>
+    <div class="input-label">
+      <%= f.label :price, "料金" %>
+    </div>
+    <div class="input-form">
+      <%= f.number_field :price %>
+    </div>
+    <div class="input-label">
+      <%= f.label :room_image, "イメージ画像" %>
+    </div>
+    <div class="input-form">
+      <%= f.file_field :room_image %>
+    </div>
+    <%= f.submit "更新" %>
+  <% end %>
+</article>
