@@ -1,20 +1,26 @@
-<h1>Users#edit</h1>
-<div class="useredit-title">編集</div>
-<%= form_for @user do |f| %>
-  <div class="field">
-    <%= f.label :name, "ユーザー名", class: "label" %>
-    <%= f.text_field :name, class: "input" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :email, "メールアドレス", class: "label" %>
-    <%= f.email_field :email, class: "input" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :user_image, "プロフィール画像", class: "label" %>
-    <%= f.file_field :user_image, class: "input" %>
-  </div>
-
-  <%= f.submit "更新", class: "button is-success" %>
-<% end %>
+<div class="section-title">
+  ユーザー情報編集
+</div>
+<article class="user-edit">
+  <%= form_for @user do |f| %>
+    <div class="input-label">
+      <%= f.label :name, "Name" %>
+    </div>
+    <div class="input-form">
+      <%= f.text_field :name %>
+    </div>
+    <div class="input-label">
+      <%= f.label :email, "Email" %>
+    </div>
+    <div class="input-form">
+      <%= f.email_field :email %>
+    </div>
+    <div class="input-label">
+      <%= f.label :user_image, "プロフィール画像" %>
+    </div>
+    <div class="input-form">
+      <%= f.file_field :user_image %>
+    </div>
+    <%= f.submit "更新" %>
+  <% end %>
+</article>

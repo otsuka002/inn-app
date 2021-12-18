@@ -5,6 +5,7 @@ class RoomsController < ApplicationController
 
   def show
     @room = Room.find(params[:id])
+    @reservation = Reservation.new
   end
 
   def new
@@ -40,8 +41,23 @@ class RoomsController < ApplicationController
     redirect_to :rooms
   end
   
+  def search
+    @rooms = Room.search(params[:keyword])
+    @keyword = params[:keyword]
+    render "index"
+  end
+  
   private
   def room_params
     params.require(:room).permit(:room_name, :introduction, :price, :address, :user_id, :room_image)
   end
+  
+  def reservation_params
+    params.require(:reservation).permit(:start_day, :end_day, :people, :user_id, :proom_id, :total_price)
+  end
+  
+  def total_price(price,people)
+    price*people
+  end
+  
 end
